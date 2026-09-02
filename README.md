@@ -79,7 +79,7 @@ shiny::runApp("app", port = 3333, host = "127.0.0.1")
 // package.json scripts
 {
   "setup-coverage": "Rscript setup-coverage.R",
-  "run-app-coverage": "npm run setup-coverage && cross-env SHINYCOV_OUTPUT=app/.shiny.cov/coverage.rds R_COVR=true Rscript run-app.R",
+  "run-app-coverage": "npm run setup-coverage && cross-env SHINYCOV_OUTPUT=app/.shiny.cov/coverage.rds R_COVR=true SHINYCOV_SOURCE=cypress Rscript run-app.R",
   "cypress:run": "cypress run",
   "test-e2e-coverage": "start-server-and-test run-app-coverage http://127.0.0.1:3333 cypress:run",
   "posttest-e2e-coverage": "Rscript collect-coverage.R"

@@ -55,6 +55,7 @@ function startShinyWithCoverage(options = {}) {
     ...process.env,
     SHINYCOV_OUTPUT: coverageRds,
     R_COVR: 'true',
+    SHINYCOV_SOURCE: 'cypress',
     SHINYCOV_SERVER_APP_DIR: appDirAbs,
     SHINYCOV_SERVER_PORT: String(port)
   }
