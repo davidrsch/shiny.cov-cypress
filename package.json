@@ -6,10 +6,10 @@
   "author": "David Díaz <daviddrsch@gmail.com>",
   "repository": {
     "type": "git",
-    "url": "https://github.com/daviddrsch/shiny.cov-cypress"
+    "url": "https://github.com/davidrsch/shiny.cov-cypress"
   },
   "bugs": {
-    "url": "https://github.com/daviddrsch/shiny.cov-cypress/issues"
+    "url": "https://github.com/davidrsch/shiny.cov-cypress/issues"
   },
   "main": "src/plugin.js",
   "exports": {
