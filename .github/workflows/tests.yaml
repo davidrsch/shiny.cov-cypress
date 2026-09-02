@@ -1,0 +1,37 @@
+# Run shiny.cov-cypress's own unit tests (plugin.js/support.js logic,
+# mocked against the Cypress globals they expect -- not a full Cypress
+# browser run).
+#
+# Lives inside this package's own directory (not a shared monorepo
+# .github/workflows/) so it comes along automatically once this package is
+# split out into its own repo -- no working-directory needed since the
+# package is the repo root here.
+
+on:
+  push:
+    branches: [main, master]
+  pull_request:
+    branches: [main, master]
+
+name: cypress-package-tests
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      # CYPRESS_INSTALL_BINARY=0 skips the ~200MB Cypress binary download:
+      # the unit tests mock the Cypress globals and never require('cypress'),
+      # so the binary isn't needed here -- npm install still auto-installs the
+      # `cypress` peer package, just without its postinstall binary fetch.
+      - run: npm install --no-audit --no-fund
+        env:
+          CYPRESS_INSTALL_BINARY: '0'
+
+      - run: npm test

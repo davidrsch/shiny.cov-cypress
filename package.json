@@ -1,0 +1,41 @@
+{
+  "name": "shiny.cov-cypress",
+  "version": "0.0.0-9000",
+  "description": "Cypress adapter for the shiny.cov R package — UI and server coverage for Shiny apps tested with Cypress",
+  "license": "MIT",
+  "author": "David Díaz <daviddrsch@gmail.com>",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/daviddrsch/shiny.cov-cypress"
+  },
+  "bugs": {
+    "url": "https://github.com/daviddrsch/shiny.cov-cypress/issues"
+  },
+  "main": "src/plugin.js",
+  "exports": {
+    ".": "./src/plugin.js",
+    "./plugin": "./src/plugin.js",
+    "./support": "./src/support.js",
+    "./server": "./src/server.js"
+  },
+  "files": [
+    "src/"
+  ],
+  "scripts": {
+    "test": "node --test test/*.test.js"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "peerDependencies": {
+    "cypress": ">=10.0.0"
+  },
+  "keywords": [
+    "shiny",
+    "coverage",
+    "cypress",
+    "shinytest2",
+    "r",
+    "testing"
+  ]
+}
