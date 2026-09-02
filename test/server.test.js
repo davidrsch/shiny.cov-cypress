@@ -1,9 +1,8 @@
 /**
- * Tests for src/server.js. This file is currently dead code (neither real
- * integration invokes it -- both rhino-cypress-e2e/package.json and
- * examples/cypress/package.json call `Rscript start-app.R` directly) but it
- * ships as part of the package's public source, so it's held to the same
- * bar as anything else here.
+ * Tests for src/server.js, the programmatic server-launcher entry point
+ * (exported as "./server"). The bundled examples invoke Rscript directly,
+ * but this module is part of the package's public surface, so it is held
+ * to the same bar as anything else here.
  *
  * We never actually spawn Rscript or make a real HTTP request. Following
  * the mocking style already established in support.test.js (assign fake

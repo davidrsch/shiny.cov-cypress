@@ -101,12 +101,11 @@ if (typeof module !== 'undefined' && module.exports) {
 // ---- Auto-log overrides: not implemented ----
 //
 // Overwriting cy.click()/cy.type()/cy.select()/cy.check()/cy.uncheck() to
-// auto-log via a chained cy.task() reliably breaks Cypress's own
-// promise/command-queue handling in a real browser, regardless of whether
-// the task call is chained before or after the original command (see
-// cypress-io/cypress#3166, #17350, #19597). Log explicitly instead, via
-// cy.shinyCovInteract(selector, action, value) immediately after the real
-// Cypress command -- see vignette("cypress", package = "shiny.cov").
+// auto-log via a chained cy.task() breaks Cypress's promise/command-queue
+// handling in a real browser, regardless of whether the task call is
+// chained before or after the original command. Log explicitly instead,
+// via cy.shinyCovInteract(selector, action, value) immediately after the
+// real Cypress command -- see vignette("cypress", package = "shiny.cov").
 
 /**
  * Log a Shiny input interaction for coverage tracking.
