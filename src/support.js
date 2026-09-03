@@ -16,12 +16,11 @@ const discoverBindingsSource = require('./vendor/discover-bindings-source.js')
 // ---- Commands ----
 
 /**
- * Fetch the UI manifest written by the R side to `.shiny.cov/manifest.json`.
- *
- * shiny.cov's R process builds the manifest and writes it to disk in the
- * same checkout Cypress runs from -- there's no need to serve it over HTTP
- * (and shiny.cov never actually implemented a `/__shiny.cov/manifest`
- * route), so this reads the file directly via a Cypress task.
+ * Read back the UI manifest that cy.shinyCovDiscoverManifest() (below)
+ * discovered from the live browser and wrote to `.shiny.cov/manifest.json`.
+ * There is no HTTP endpoint for the manifest -- it's a plain file in the
+ * same checkout Cypress runs from, written by the discovery command after
+ * each test -- so this reads it via a Cypress task.
  *
  * @returns {Cypress.Chainable<Object>} The manifest JSON.
  *

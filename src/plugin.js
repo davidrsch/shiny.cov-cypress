@@ -146,10 +146,11 @@ module.exports = function shinyCovPlugin(on, config) {
 
   on('task', {
     /**
-     * Read the UI manifest that shiny.cov's R side writes to
+     * Read back the UI manifest that cy.shinyCovDiscoverManifest() (see
+     * support.js) discovered from the live browser and wrote to
      * `.shiny.cov/manifest.json`. There is no HTTP endpoint for this --
      * the manifest is a plain file in the same checkout Cypress runs
-     * from, written before the app starts serving requests.
+     * from, written by the discovery command after each test.
      *
      * @returns {Object|null} The manifest, or null if not found/unreadable.
      */
